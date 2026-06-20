@@ -1,154 +1,207 @@
-# 🚀 MedSwift – AI-Powered Medicine Delivery Ecosystem
+# 🚑💊 MedSwift — AI Powered Smart Medicine Delivery Platform
 
-<div align="center">
+<p align="center">
 
-### 💊 Healthcare at the Speed of Life
+<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=30&duration=3000&pause=800&color=00E5FF&center=true&vCenter=true&width=1000&lines=Instant+Medicine+Delivery+Platform;AI+Powered+Healthcare+Logistics+System;Prescription+Based+Medicine+Ordering;Real-Time+Medicine+Tracking+Platform+🚀"/>
 
-**Delivering Medicines. Saving Time. Improving Lives.**
-
-*Instant prescription and OTC medicine delivery platform powered by AI, real-time logistics, and intelligent inventory management.*
-
-![MedSwift Banner](screenshots/app-preview.png)
-
-![React](https://img.shields.io/badge/React-Frontend-blue)
-![Node.js](https://img.shields.io/badge/Node.js-Backend-green)
-![MongoDB](https://img.shields.io/badge/MongoDB-Database-darkgreen)
-![Redis](https://img.shields.io/badge/Redis-Realtime-red)
-![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
-![License](https://img.shields.io/badge/License-MIT-purple)
-
-</div>
+</p>
 
 ---
 
-## 🌍 Vision
+<p align="center">
 
-MedSwift is a next-generation healthcare logistics platform designed to bridge the gap between patients and pharmacies through ultra-fast medicine delivery.
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,25:2563eb,50:06b6d4,75:14b8a6,100:22c55e&height=180&section=header&text=MedSwift&fontSize=45&fontColor=ffffff&animation=fadeIn&fontAlignY=35"/>
 
-Whether it's an emergency prescription, chronic medication refill, or over-the-counter healthcare products, MedSwift ensures medicines reach customers quickly, securely, and reliably.
-
----
-
-## ✨ Key Highlights
-
-### ⚡ Lightning-Fast Delivery
-
-* Medicines delivered within **30 minutes**
-* Smart pharmacy selection based on proximity
-* Dynamic route optimization
-
-### 🤖 AI-Powered Healthcare Assistance
-
-* Automated prescription verification
-* OCR-based prescription scanning
-* Intelligent medicine recommendations
-* Alternative medicine suggestions during stock shortages
-
-### 📍 Live Order Tracking
-
-* Real-time GPS tracking
-* Live delivery status updates
-* Dynamic ETA calculation
-
-### 🔒 Secure & Compliant
-
-* Encrypted prescription storage
-* Secure payment processing
-* Digital medical record management
+</p>
 
 ---
 
-# 🧑‍⚕️ Patient Experience
+<p align="center">
 
-### 📤 Prescription Upload
+<img src="https://img.shields.io/badge/MERN-Stack-success?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Authentication-JWT-blue?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Database-MongoDB-darkgreen?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Maps-Leaflet-orange?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Payments-Razorpay-purple?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge"/>
 
-Upload prescriptions instantly using camera or gallery.
-
-### 🔍 Smart Medicine Search
-
-Find medicines, healthcare products, and wellness essentials.
-
-### 💳 Multiple Payment Options
-
-* UPI
-* Credit/Debit Cards
-* Net Banking
-* Wallets
-* Cash on Delivery
-
-### 🚚 Live Delivery Tracking
-
-Track your order from pharmacy to doorstep in real time.
-
-### 💊 Medicine Alternatives
-
-Receive approved substitute recommendations when medicines are unavailable.
+</p>
 
 ---
 
-# 🏥 Pharmacy Dashboard
+# ✨ Overview
 
-A dedicated control center for pharmacy partners.
+MedSwift is a next-generation AI-powered medicine delivery ecosystem designed to connect patients, pharmacies, and delivery partners through a unified digital platform.
 
-### Features
+The system enables users to upload prescriptions, order medicines, track deliveries in real time, and receive intelligent medicine recommendations while helping pharmacies manage inventory efficiently.
 
-* Real-time inventory management
-* Order processing dashboard
-* Prescription verification panel
-* Sales analytics
-* Revenue insights
-* Automated stock alerts
-
-### Benefits
-
-* Increased customer reach
-* Faster order fulfillment
-* Automated workflow management
+Built using the **MERN Stack**, MedSwift transforms traditional medicine procurement into a fast, secure, and technology-driven experience.
 
 ---
 
-# 🚴 Delivery Partner App
+# 🚀 Core Features
 
-Empowering delivery agents with intelligent tools.
+# 👨‍⚕️ Patient Features
 
-### Features
+✅ Secure User Registration & Login
 
-* Smart order allocation
-* Turn-by-turn navigation
-* Route optimization
-* Emergency medicine prioritization
-* Earnings dashboard
-* Delivery analytics
+✅ Prescription Upload & Verification
+
+✅ Search Medicines Instantly
+
+✅ AI-Based Medicine Suggestions
+
+✅ Alternative Medicine Recommendations
+
+✅ Real-Time Order Tracking
+
+✅ Razorpay / UPI Payment Integration
+
+✅ Order History Management
+
+✅ Responsive Mobile-Friendly Interface
 
 ---
 
-# 🧠 System Architecture
+# 🏥 Pharmacy Features
 
-```text
-Patient App
-      │
-      ▼
- API Gateway
-      │
- ┌────┴─────┐
- ▼          ▼
-Auth      Orders
-Service   Service
- │          │
- ▼          ▼
-Redis    MongoDB
- │          │
- └────┬─────┘
-      ▼
- Delivery Engine
-      │
-      ▼
- Driver App
+✅ Pharmacy Dashboard
+
+✅ Medicine Inventory Management
+
+✅ Prescription Verification
+
+✅ Order Processing System
+
+✅ Sales Analytics
+
+✅ Low Stock Alerts
+
+✅ Order Status Updates
+
+✅ Revenue Monitoring
+
+---
+
+# 🚴 Delivery Partner Features
+
+✅ Delivery Partner Authentication
+
+✅ Smart Order Assignment
+
+✅ Live GPS Navigation
+
+✅ Route Optimization
+
+✅ Dynamic ETA Calculation
+
+✅ Delivery Status Updates
+
+✅ Earnings Dashboard
+
+---
+
+# 🛠️ Admin Features
+
+✅ Secure Admin Authentication
+
+✅ Pharmacy Management
+
+✅ User Management
+
+✅ Delivery Partner Management
+
+✅ Inventory Monitoring
+
+✅ Order Monitoring Dashboard
+
+✅ Platform Analytics
+
+✅ System-Wide Reports
+
+---
+
+# ⚡ System Workflow
+
+```mermaid
+flowchart TD
+
+A[👤 User Login]
+--> B[🔐 JWT Authentication]
+
+B --> C[📤 Upload Prescription]
+
+C --> D[🧠 Prescription Validation]
+
+D --> E[💊 Search Medicines]
+
+E --> F[🛒 Add To Cart]
+
+F --> G[💳 Payment Gateway]
+
+G --> H[🏥 Pharmacy Processing]
+
+H --> I[🚴 Delivery Partner Assigned]
+
+I --> J[📍 Real-Time Tracking]
+
+J --> K[✅ Medicine Delivered]
 ```
 
 ---
 
-# 🛠 Technology Stack
+# 🧠 AI Features
+
+### Intelligent Prescription Processing
+
+* OCR-Based Prescription Reading
+* Automated Medicine Identification
+* Prescription Validation Assistance
+
+### Smart Recommendation Engine
+
+* Alternative Medicine Suggestions
+* Stock Availability Prediction
+* Personalized Healthcare Recommendations
+
+### Future AI Integrations
+
+* Voice-Based Medicine Ordering
+* AI Health Assistant
+* Medicine Reminder System
+* Predictive Demand Forecasting
+
+---
+
+# 🏗️ System Architecture
+
+```mermaid
+flowchart LR
+
+User --> Frontend
+
+Frontend --> Backend
+
+Backend --> MongoDB
+
+Backend --> Razorpay
+
+Backend --> Firebase
+
+Backend --> Redis
+
+Backend --> Pharmacy
+
+Pharmacy --> DeliveryPartner
+
+DeliveryPartner --> User
+```
+
+---
+
+# 🛠️ Technology Stack
 
 ## Frontend
 
@@ -156,10 +209,9 @@ Redis    MongoDB
 * Vite
 * TypeScript
 * Tailwind CSS
-* Headless UI
 * Redux Toolkit
 * React Router
-* Leaflet Maps
+* Leaflet.js
 
 ## Backend
 
@@ -169,9 +221,15 @@ Redis    MongoDB
 * Redis
 * Firebase Storage
 * JWT Authentication
-* Twilio API
 
-## DevOps & Cloud
+## Third-Party Services
+
+* Razorpay Payment Gateway
+* Cloudinary Image Storage
+* Twilio SMS Notifications
+* Google Maps API
+
+## DevOps
 
 * Docker
 * GitHub Actions
@@ -181,37 +239,9 @@ Redis    MongoDB
 
 ---
 
-# 🚀 Future Roadmap
-
-### Phase 1
-
-* Medicine delivery platform
-* Pharmacy onboarding
-* Live tracking system
-
-### Phase 2
-
-* AI prescription analysis
-* Voice-based medicine ordering
-* Smart medicine reminders
-
-### Phase 3
-
-* Telemedicine integration
-* Doctor consultations
-* Health insurance partnerships
-
-### Phase 4
-
-* Drone-based medicine delivery
-* AI health assistant
-* Predictive medicine demand forecasting
-
----
-
 # 📂 Project Structure
 
-```text
+```bash
 medswift/
 │
 ├── client/
@@ -220,9 +250,8 @@ medswift/
 │   │   ├── assets/
 │   │   ├── components/
 │   │   ├── pages/
-│   │   ├── hooks/
-│   │   ├── services/
 │   │   ├── store/
+│   │   ├── services/
 │   │   └── utils/
 │
 ├── server/
@@ -231,85 +260,105 @@ medswift/
 │   ├── models/
 │   ├── routes/
 │   ├── services/
-│   ├── config/
-│   └── utils/
+│   └── config/
 │
 ├── delivery-agent/
-│   ├── screens/
-│   ├── navigation/
-│   └── services/
 │
 ├── docs/
-├── screenshots/
+│
 └── README.md
 ```
 
 ---
 
-# ⚙️ Installation
+# 🚀 Future Roadmap
 
-```bash
-# Clone repository
-git clone https://github.com/yourusername/medswift.git
+### Phase 1
 
-# Move into project
-cd medswift
+✅ Medicine Ordering
 
-# Install frontend dependencies
-cd client
-npm install
+✅ Prescription Upload
 
-# Install backend dependencies
-cd ../server
-npm install
+✅ Live Delivery Tracking
 
-# Run frontend
-npm run dev
+### Phase 2
 
-# Run backend
-npm run server
-```
+🔄 AI Prescription Analysis
 
----
+🔄 Smart Inventory Prediction
 
-# 📈 Scalability
+🔄 Voice Search Medicines
 
-Designed to support:
+### Phase 3
 
-✅ 10,000+ Daily Users
+🔄 Telemedicine Consultation
 
-✅ Multi-City Operations
+🔄 Emergency Medicine Delivery
 
-✅ Distributed Pharmacy Network
+🔄 Healthcare Subscription Plans
 
-✅ High Availability Infrastructure
+### Phase 4
 
-✅ Real-Time Order Processing
+🚀 Drone-Based Delivery
 
-✅ Cloud-Native Deployment
+🚀 AI Healthcare Assistant
+
+🚀 Smart Wearable Integration
 
 ---
 
-# 🤝 Contributing
+# 📈 Scalability Highlights
 
-Contributions, feature requests, and improvements are welcome.
+✅ Cloud-Native Architecture
 
-```bash
-Fork → Create Branch → Commit → Push → Pull Request
-```
+✅ Microservice Ready Design
+
+✅ Redis-Based Real-Time Updates
+
+✅ High Availability Deployment
+
+✅ Multi-City Expansion Support
+
+✅ Thousands of Concurrent Users
 
 ---
 
-# 📜 License
+# 🔒 Security Features
 
-This project is licensed under the MIT License.
+✅ JWT Authentication
+
+✅ Role-Based Access Control
+
+✅ Encrypted Prescription Storage
+
+✅ Secure Payment Processing
+
+✅ Protected REST APIs
+
+✅ Input Validation & Sanitization
 
 ---
 
-<div align="center">
+# 👨‍💻 Developer
 
-### 💙 Building the Future of Digital Healthcare
+### Saket Bishnu
 
-**MedSwift – Medicines Delivered at the Speed of Care**
+Full Stack Developer | AI Enthusiast | MERN Stack Developer
 
-</div>
+📧 [saketbsn@gmail.com](mailto:saketbsn@gmail.com)
+
+🌐 Portfolio: https://saket-bishnu.vercel.app
+
+💼 LinkedIn: https://linkedin.com/in/saket-bishnu-00769a269
+
+---
+
+<p align="center">
+
+### 🚀 Transforming Healthcare Through Technology
+
+### 💊 Delivering Medicines Faster, Smarter & Safer
+
+⭐ Star the repository if you found it useful!
+
+</p>
