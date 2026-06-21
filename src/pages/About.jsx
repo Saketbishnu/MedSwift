@@ -9,7 +9,7 @@ const About = () => {
           At <span className="font-semibold text-blue-600">Midkift</span>, we believe that quality healthcare should be 
           accessible, affordable, and convenient for everyone. Our mission is to 
           provide trusted pharmaceutical products, ensuring that you and your 
-          loved ones receive the best care possible.
+          loved ones receive the best care possible..
         </p>
       </div>
 
