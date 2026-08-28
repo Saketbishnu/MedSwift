@@ -29,15 +29,19 @@ const Product = () => {
     }
 
     setIsAddingToCart(true);
-    
-    addToCart({
-      id: productData._id,
-      name: productData.name,
-      price: productData.price,
-      image: productData.image[0],
-      size: selectedSize,
-      quantity: quantity
-    });
+
+    if (typeof addToCart === 'function') {
+      addToCart({
+        id: productData._id,
+        name: productData.name,
+        price: productData.price,
+        image: productData.image[0],
+        size: selectedSize,
+        quantity: quantity
+      });
+    } else {
+      console.warn('addToCart is not yet implemented in ShopContext.');
+    }
 
     await new Promise(resolve => setTimeout(resolve, 300));
     setIsAddingToCart(false);
