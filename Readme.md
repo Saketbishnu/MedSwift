@@ -158,3 +158,29 @@ Backend Emits Socket.IO Event
 Admin Panel Receives Event
         ↓
 Orders List Updates Automatically
+
+👤 User Visits Shopzy
+        ↓
+🔐 Login / Register
+        ↓
+🛍️ Browse Products
+        ↓
+🔎 Search / Filter / Sort
+        ↓
+📦 View Product Details
+        ↓
+🛒 Add Product To Cart
+        ↓
+📋 Checkout
+        ↓
+💰 Cash On Delivery
+        ↓
+📦 Order Created
+        ↓
+🗄️ MongoDB
+        ↓
+⚡ Socket.IO Event
+        ↓
+🛠️ Admin Receives New Order
+        ↓
+📦 Admin Processes Order
