@@ -117,6 +117,30 @@ const ShopContextProvider = (props) => {
         return total;
     };
 
+    // Converts cartItems + products into the items[] array expected by the order API
+    const getOrderItems = () => {
+        const orderItems = [];
+        for (const itemId in cartItems) {
+            const product = products.find(p => p._id === itemId);
+            if (!product) continue;
+            for (const size in cartItems[itemId]) {
+                const qty = cartItems[itemId][size];
+                if (qty > 0) {
+                    orderItems.push({
+                        _id: product._id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image,
+                        size,
+                        quantity: qty,
+                    });
+                }
+            }
+        }
+        return orderItems;
+    };
+
+
     const getUserCart = async (userToken) => {
         try {
             const response = await axios.post(
@@ -179,6 +203,7 @@ const ShopContextProvider = (props) => {
         updateQuantity,
         getCartCount,
         getCartAmount,
+        getOrderItems,
         getUserCart,
     };
 
