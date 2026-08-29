@@ -100,4 +100,45 @@ const adminLogin = async (req, res) => {
 }
 
 
-export { loginUser, registerUser, adminLogin }
+// Get authenticated user's profile
+const getProfile = async (req, res) => {
+    try {
+        const { userId } = req.body
+        const user = await userModel.findById(userId).select('name email')
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' })
+        }
+        res.json({ success: true, user: { name: user.name, email: user.email } })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+// Update authenticated user's name and/or email
+const updateProfile = async (req, res) => {
+    try {
+        const { userId, name, email } = req.body
+
+        if (!name || !name.trim()) {
+            return res.json({ success: false, message: 'Name is required' })
+        }
+        if (!email || !validator.isEmail(email)) {
+            return res.json({ success: false, message: 'Please enter a valid email' })
+        }
+
+        // Prevent email collision with another user
+        const existing = await userModel.findOne({ email, _id: { $ne: userId } })
+        if (existing) {
+            return res.json({ success: false, message: 'Email is already in use by another account' })
+        }
+
+        await userModel.findByIdAndUpdate(userId, { name: name.trim(), email })
+        res.json({ success: true, message: 'Profile updated successfully' })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+export { loginUser, registerUser, adminLogin, getProfile, updateProfile }

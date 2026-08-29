@@ -169,16 +169,54 @@ const ShopContextProvider = (props) => {
         }
     };
 
+    // ── Profile ───────────────────────────────────────────────────────
+
+    const [userProfile, setUserProfile] = useState(null);
+
+    const getUserProfile = async (userToken) => {
+        try {
+            const response = await axios.post(
+                `${backendUrl}/api/user/profile`,
+                {},
+                { headers: { token: userToken } }
+            );
+            if (response.data.success) {
+                setUserProfile(response.data.user);
+            }
+        } catch (error) {
+            console.error('Failed to fetch user profile:', error.message);
+        }
+    };
+
+    const updateUserProfile = async (name, email) => {
+        try {
+            const response = await axios.post(
+                `${backendUrl}/api/user/update-profile`,
+                { name, email },
+                { headers: { token } }
+            );
+            if (response.data.success) {
+                setUserProfile({ name, email });
+                return { success: true, message: response.data.message };
+            } else {
+                return { success: false, message: response.data.message };
+            }
+        } catch (error) {
+            return { success: false, message: error.message || 'Something went wrong.' };
+        }
+    };
+
     // ── Effects ───────────────────────────────────────────────────────
 
     useEffect(() => {
         fetchProducts();
     }, []);
 
-    // On mount, if a token exists in localStorage, restore the user's cart
+    // On mount, if a token exists in localStorage, restore the user's cart and profile
     useEffect(() => {
         if (token) {
             getUserCart(token);
+            getUserProfile(token);
         }
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -205,6 +243,10 @@ const ShopContextProvider = (props) => {
         getCartAmount,
         getOrderItems,
         getUserCart,
+        // Profile
+        userProfile,
+        getUserProfile,
+        updateUserProfile,
     };
 
     return (
