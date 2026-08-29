@@ -1,8 +1,8 @@
-# 🚑💊 MedSwift — AI Powered Smart Medicine Delivery Platform
+# 🛒✨ Shopzy — Modern Full Stack E-Commerce Platform
 
 <p align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=30&duration=3000&pause=800&color=00E5FF&center=true&vCenter=true&width=1000&lines=Instant+Medicine+Delivery+Platform;AI+Powered+Healthcare+Logistics+System;Prescription+Based+Medicine+Ordering;Real-Time+Medicine+Tracking+Platform+🚀"/>
+<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=30&duration=3000&pause=800&color=22C55E&center=true&vCenter=true&width=1000&lines=Modern+E-Commerce+Platform;Full+Stack+MERN+Shopping+Experience;Secure+Authentication+%26+Order+Management;Real-Time+Admin+Order+Updates+🚀"/>
 
 </p>
 
@@ -10,7 +10,7 @@
 
 <p align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,25:2563eb,50:06b6d4,75:14b8a6,100:22c55e&height=180&section=header&text=MedSwift&fontSize=45&fontColor=ffffff&animation=fadeIn&fontAlignY=35"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,25:166534,50:22c55e,75:4ade80,100:86efac&height=180&section=header&text=Shopzy&fontSize=45&fontColor=ffffff&animation=fadeIn&fontAlignY=35"/>
 
 </p>
 
@@ -19,13 +19,20 @@
 <p align="center">
 
 <img src="https://img.shields.io/badge/MERN-Stack-success?style=for-the-badge"/>
+
 <img src="https://img.shields.io/badge/Authentication-JWT-blue?style=for-the-badge"/>
+
 <img src="https://img.shields.io/badge/Database-MongoDB-darkgreen?style=for-the-badge"/>
+
 <img src="https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge"/>
+
 <img src="https://img.shields.io/badge/Backend-Node.js-green?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Maps-Leaflet-orange?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Payments-Razorpay-purple?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Status-Production%20Ready-brightgreen?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/Real--Time-Socket.IO-black?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/Image%20Storage-Cloudinary-blue?style=for-the-badge"/>
+
+<img src="https://img.shields.io/badge/Status-Active%20Development-orange?style=for-the-badge"/>
 
 </p>
 
@@ -33,73 +40,75 @@
 
 # ✨ Overview
 
-MedSwift is a next-generation AI-powered medicine delivery ecosystem designed to connect patients, pharmacies, and delivery partners through a unified digital platform.
+Shopzy is a modern full-stack e-commerce platform designed to provide users with a smooth and responsive online shopping experience.
 
-The system enables users to upload prescriptions, order medicines, track deliveries in real time, and receive intelligent medicine recommendations while helping pharmacies manage inventory efficiently.
+The platform allows users to browse products, search and filter collections, add products to their cart, securely manage their accounts, place orders, and track their order history.
 
-Built using the **MERN Stack**, MedSwift transforms traditional medicine procurement into a fast, secure, and technology-driven experience.
+The system also includes a dedicated admin panel for managing products, monitoring customer orders, and updating order statuses.
+
+Shopzy is built using the **MERN Stack** and focuses on building a scalable, real-world e-commerce architecture while integrating modern features such as real-time updates and future AI-powered capabilities.
 
 ---
 
 # 🚀 Core Features
 
-# 👨‍⚕️ Patient Features
+# 👤 User Features
 
 ✅ Secure User Registration & Login
 
-✅ Prescription Upload & Verification
+✅ JWT Authentication
 
-✅ Search Medicines Instantly
+✅ Browse Product Collections
 
-✅ AI-Based Medicine Suggestions
+✅ Product Search
 
-✅ Alternative Medicine Recommendations
+✅ Product Filtering
 
-✅ Real-Time Order Tracking
+✅ Product Sorting
 
-✅ Razorpay / UPI Payment Integration
+✅ Add Products to Cart
 
-✅ Order History Management
+✅ Update Product Quantity
 
-✅ Responsive Mobile-Friendly Interface
+✅ Remove Products from Cart
 
----
+✅ Cart Total Calculation
 
-# 🏥 Pharmacy Features
+✅ Cash on Delivery Checkout
 
-✅ Pharmacy Dashboard
+✅ Order Placement
 
-✅ Medicine Inventory Management
+✅ Order History
 
-✅ Prescription Verification
+✅ Order Status Tracking
 
-✅ Order Processing System
+✅ User Profile Management
 
-✅ Sales Analytics
+✅ Edit Profile Information
 
-✅ Low Stock Alerts
-
-✅ Order Status Updates
-
-✅ Revenue Monitoring
+✅ Responsive User Interface
 
 ---
 
-# 🚴 Delivery Partner Features
+# 🛍️ Product Features
 
-✅ Delivery Partner Authentication
+✅ Product Collection Page
 
-✅ Smart Order Assignment
+✅ Category-Based Products
 
-✅ Live GPS Navigation
+✅ Search Products
 
-✅ Route Optimization
+✅ Filter Products
 
-✅ Dynamic ETA Calculation
+✅ Sort Products
 
-✅ Delivery Status Updates
+✅ Latest Product Collection
 
-✅ Earnings Dashboard
+✅ Best Seller Products
+
+✅ Product Detail Pages
+
+✅ Product Images via Cloudinary
 
 ---
 
@@ -107,77 +116,76 @@ Built using the **MERN Stack**, MedSwift transforms traditional medicine procure
 
 ✅ Secure Admin Authentication
 
-✅ Pharmacy Management
+✅ Product Management
 
-✅ User Management
+✅ Add New Products
 
-✅ Delivery Partner Management
+✅ View Product List
 
-✅ Inventory Monitoring
+✅ Delete Products
 
-✅ Order Monitoring Dashboard
+✅ Order Management
 
-✅ Platform Analytics
+✅ View Customer Orders
 
-✅ System-Wide Reports
+✅ Update Order Status
+
+✅ Monitor Order Information
 
 ---
 
-# ⚡ System Workflow
+# ⚡ Real-Time Features
 
-```mermaid
+Shopzy currently uses **Socket.IO** to provide real-time communication between the backend and the admin panel.
+
+### Real-Time New Orders
+
+When a customer successfully places an order:
+
+```text
+Customer Places Order
+        ↓
+Order Saved in MongoDB
+        ↓
+Backend Emits Socket.IO Event
+        ↓
+Admin Panel Receives Event
+        ↓
+Orders List Automatically Updates
+
+⚡ System Workflow
+
 flowchart TD
 
-A[👤 User Login]
---> B[🔐 JWT Authentication]
+A[👤 User Visits Shopzy]
 
-B --> C[📤 Upload Prescription]
+--> B[🔐 Login / Register]
 
-C --> D[🧠 Prescription Validation]
+B --> C[🛍️ Browse Products]
 
-D --> E[💊 Search Medicines]
+C --> D[🔎 Search / Filter Products]
+
+D --> E[📦 View Product]
 
 E --> F[🛒 Add To Cart]
 
-F --> G[💳 Payment Gateway]
+F --> G[📋 Checkout]
 
-G --> H[🏥 Pharmacy Processing]
+G --> H[💰 Cash On Delivery]
 
-H --> I[🚴 Delivery Partner Assigned]
+H --> I[📦 Order Created]
 
-I --> J[📍 Real-Time Tracking]
+I --> J[(MongoDB)]
 
-J --> K[✅ Medicine Delivered]
-```
+J --> K[⚡ Socket.IO Event]
 
----
+K --> L[🛠️ Admin Receives New Order]
 
-# 🧠 AI Features
+L --> M[🚚 Admin Updates Order Status]
 
-### Intelligent Prescription Processing
+M --> N[📦 Customer Tracks Order]
 
-* OCR-Based Prescription Reading
-* Automated Medicine Identification
-* Prescription Validation Assistance
-
-### Smart Recommendation Engine
-
-* Alternative Medicine Suggestions
-* Stock Availability Prediction
-* Personalized Healthcare Recommendations
-
-### Future AI Integrations
-
-* Voice-Based Medicine Ordering
-* AI Health Assistant
-* Medicine Reminder System
-* Predictive Demand Forecasting
-
----
-
-# 🏗️ System Architecture
-
-```mermaid
+🏗️ System Architecture
 flowchart LR
 
 User --> Frontend
@@ -186,179 +194,12 @@ Frontend --> Backend
 
 Backend --> MongoDB
 
-Backend --> Razorpay
+Backend --> Cloudinary
 
-Backend --> Firebase
+Backend --> SocketIO
 
-Backend --> Redis
+SocketIO --> Admin
 
-Backend --> Pharmacy
+Admin --> Backend
 
-Pharmacy --> DeliveryPartner
-
-DeliveryPartner --> User
-```
-
----
-
-# 🛠️ Technology Stack
-
-## Frontend
-
-* React.js
-* Vite
-* TypeScript
-* Tailwind CSS
-* Redux Toolkit
-* React Router
-* Leaflet.js
-
-## Backend
-
-* Node.js
-* Express.js
-* MongoDB Atlas
-* Redis
-* Firebase Storage
-* JWT Authentication
-
-## Third-Party Services
-
-* Razorpay Payment Gateway
-* Cloudinary Image Storage
-* Twilio SMS Notifications
-* Google Maps API
-
-## DevOps
-
-* Docker
-* GitHub Actions
-* AWS EC2
-* Nginx
-* Sentry Monitoring
-
----
-
-# 📂 Project Structure
-
-```bash
-medswift/
-│
-├── client/
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── store/
-│   │   ├── services/
-│   │   └── utils/
-│
-├── server/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── services/
-│   └── config/
-│
-├── delivery-agent/
-│
-├── docs/
-│
-└── README.md
-```
-
----
-
-# 🚀 Future Roadmap
-
-### Phase 1
-
-✅ Medicine Ordering
-
-✅ Prescription Upload
-
-✅ Live Delivery Tracking
-
-### Phase 2
-
-🔄 AI Prescription Analysis
-
-🔄 Smart Inventory Prediction
-
-🔄 Voice Search Medicines
-
-### Phase 3
-
-🔄 Telemedicine Consultation
-
-🔄 Emergency Medicine Delivery
-
-🔄 Healthcare Subscription Plans
-
-### Phase 4
-
-🚀 Drone-Based Delivery
-
-🚀 AI Healthcare Assistant
-
-🚀 Smart Wearable Integration
-
----
-
-# 📈 Scalability Highlights
-
-✅ Cloud-Native Architecture
-
-✅ Microservice Ready Design
-
-✅ Redis-Based Real-Time Updates
-
-✅ High Availability Deployment
-
-✅ Multi-City Expansion Support
-
-✅ Thousands of Concurrent Users
-
----
-
-# 🔒 Security Features
-
-✅ JWT Authentication
-
-✅ Role-Based Access Control
-
-✅ Encrypted Prescription Storage
-
-✅ Secure Payment Processing
-
-✅ Protected REST APIs
-
-✅ Input Validation & Sanitization
-
----
-
-# 👨‍💻 Developer
-
-### Saket Bishnu
-
-Full Stack Developer | AI Enthusiast | MERN Stack Developer
-
-📧 [saketbsn@gmail.com](mailto:saketbsn@gmail.com)
-
-🌐 Portfolio: https://saket-bishnu.vercel.app
-
-💼 LinkedIn: https://linkedin.com/in/saket-bishnu-00769a269
-
----
-
-<p align="center">
-
-### 🚀 Transforming Healthcare Through Technology
-
-### 💊 Delivering Medicines Faster, Smarter & Safer
-
-⭐ Star the repository if you found it useful!
-
-</p>
+Backend --> MongoDB

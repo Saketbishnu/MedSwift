@@ -9,7 +9,7 @@ const Footer = () => {
         <div>
           <img src={assets.logo} className='mb-5 w-32' alt=""/>
           <p className='w-full md:w-2/3 text-gray-600'>
-          MedKift is an instant pharmacy delivery web platform that allows users to quickly order medicines online. The system supports prescription uploads, secure payments, and real-time tracking, ensuring a seamless and reliable experience for customers in need of timely medical supplies.
+          Shopzy is an instant  delivery web platform that allows users to quickly order medicines online. The system supports prescription uploads, secure payments, and real-time tracking, ensuring a seamless and reliable experience for customers in need of timely medical supplies.
           </p>
         </div>
         <div>
@@ -25,7 +25,7 @@ const Footer = () => {
           <p className='text-xl font-medium mb-5'>SUPPORT</p>
           <ul className='flex flex-col gap-1 text-gray-600'>
             <li>contact us</li>
-            <li>medkift@gmail.com</li>
+            <li>Shopzy@gmail.com</li>
           </ul>
 
         </div>
