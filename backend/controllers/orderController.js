@@ -37,6 +37,10 @@ const placeOrder = async (req,res) => {
 
         await userModel.findByIdAndUpdate(userId,{cartData:{}})
 
+        // Notify all connected Admin clients that a new order has arrived
+        const io = req.app.get('io')
+        if (io) io.emit('newOrder', newOrder)
+
         res.json({success:true,message:"Order Placed"})
 
 

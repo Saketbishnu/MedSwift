@@ -5,6 +5,7 @@ import axios from 'axios'
 import { backendUrl, currency } from '../App'
 import { toast } from 'react-toastify'
 import { assets } from '../assets/assets'
+import { io } from 'socket.io-client'
 
 const Orders = ({ token }) => {
 
@@ -47,6 +48,19 @@ const Orders = ({ token }) => {
   useEffect(() => {
     fetchAllOrders();
   }, [token])
+
+  // Real-time: listen for newOrder events and auto-refresh the order list
+  useEffect(() => {
+    const socket = io(backendUrl)
+
+    socket.on('newOrder', () => {
+      fetchAllOrders()
+    })
+
+    return () => {
+      socket.disconnect()
+    }
+  }, [token]) // reconnect if admin token changes
 
   return (
     <div>
