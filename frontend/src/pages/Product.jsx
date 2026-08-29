@@ -27,22 +27,8 @@ const Product = () => {
       alert('Please select a size');
       return;
     }
-
     setIsAddingToCart(true);
-
-    if (typeof addToCart === 'function') {
-      addToCart({
-        id: productData._id,
-        name: productData.name,
-        price: productData.price,
-        image: productData.image[0],
-        size: selectedSize,
-        quantity: quantity
-      });
-    } else {
-      console.warn('addToCart is not yet implemented in ShopContext.');
-    }
-
+    await addToCart(productData._id, selectedSize);
     await new Promise(resolve => setTimeout(resolve, 300));
     setIsAddingToCart(false);
   };
