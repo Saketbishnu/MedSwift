@@ -40,13 +40,13 @@
 
 # ✨ Overview
 
-Shopzy is a modern full-stack e-commerce platform designed to provide users with a smooth and responsive online shopping experience.
+Shopzy is a modern full-stack e-commerce platform designed to provide users with a smooth, responsive, and scalable online shopping experience.
 
-The platform allows users to browse products, search and filter collections, add products to their cart, securely manage their accounts, place orders, and track their order history.
+The platform allows users to browse products, search and filter collections, view product details, manage their shopping cart, securely authenticate, place orders, manage their profiles, and track their order history.
 
-The system also includes a dedicated admin panel for managing products, monitoring customer orders, and updating order statuses.
+Shopzy also includes a dedicated admin panel where administrators can manage products, monitor customer orders, and update order statuses.
 
-Shopzy is built using the **MERN Stack** and focuses on building a scalable, real-world e-commerce architecture while integrating modern features such as real-time updates and future AI-powered capabilities.
+The project is built using the **MERN Stack** and focuses on implementing real-world e-commerce architecture and modern features such as **JWT authentication, Cloudinary image management, real-time Socket.IO communication, order management, and future AI-powered capabilities**.
 
 ---
 
@@ -66,13 +66,15 @@ Shopzy is built using the **MERN Stack** and focuses on building a scalable, rea
 
 ✅ Product Sorting
 
+✅ Product Detail Pages
+
 ✅ Add Products to Cart
 
 ✅ Update Product Quantity
 
 ✅ Remove Products from Cart
 
-✅ Cart Total Calculation
+✅ Automatic Cart Total Calculation
 
 ✅ Cash on Delivery Checkout
 
@@ -96,19 +98,21 @@ Shopzy is built using the **MERN Stack** and focuses on building a scalable, rea
 
 ✅ Category-Based Products
 
-✅ Search Products
+✅ Product Search
 
-✅ Filter Products
+✅ Product Filtering
 
-✅ Sort Products
+✅ Product Sorting
 
 ✅ Latest Product Collection
 
 ✅ Best Seller Products
 
-✅ Product Detail Pages
+✅ Individual Product Detail Pages
 
-✅ Product Images via Cloudinary
+✅ Multiple Product Images
+
+✅ Cloudinary-Based Image Storage
 
 ---
 
@@ -132,13 +136,15 @@ Shopzy is built using the **MERN Stack** and focuses on building a scalable, rea
 
 ✅ Monitor Order Information
 
+✅ Real-Time New Order Updates
+
 ---
 
 # ⚡ Real-Time Features
 
-Shopzy currently uses **Socket.IO** to provide real-time communication between the backend and the admin panel.
+Shopzy uses **Socket.IO** to provide real-time communication between the backend and connected clients.
 
-### Real-Time New Orders
+## 📦 Real-Time New Orders
 
 When a customer successfully places an order:
 
@@ -151,55 +157,4 @@ Backend Emits Socket.IO Event
         ↓
 Admin Panel Receives Event
         ↓
-Orders List Automatically Updates
-
-⚡ System Workflow
-
-flowchart TD
-
-A[👤 User Visits Shopzy]
-
---> B[🔐 Login / Register]
-
-B --> C[🛍️ Browse Products]
-
-C --> D[🔎 Search / Filter Products]
-
-D --> E[📦 View Product]
-
-E --> F[🛒 Add To Cart]
-
-F --> G[📋 Checkout]
-
-G --> H[💰 Cash On Delivery]
-
-H --> I[📦 Order Created]
-
-I --> J[(MongoDB)]
-
-J --> K[⚡ Socket.IO Event]
-
-K --> L[🛠️ Admin Receives New Order]
-
-L --> M[🚚 Admin Updates Order Status]
-
-M --> N[📦 Customer Tracks Order]
-
-🏗️ System Architecture
-flowchart LR
-
-User --> Frontend
-
-Frontend --> Backend
-
-Backend --> MongoDB
-
-Backend --> Cloudinary
-
-Backend --> SocketIO
-
-SocketIO --> Admin
-
-Admin --> Backend
-
-Backend --> MongoDB
+Orders List Updates Automatically
