@@ -9,6 +9,7 @@ const Profile = () => {
     const [editMode, setEditMode] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [mobile, setMobile] = useState('');
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState({ text: '', type: '' });
 
@@ -22,6 +23,7 @@ const Profile = () => {
         if (userProfile) {
             setName(userProfile.name);
             setEmail(userProfile.email);
+            setMobile(userProfile.mobile || '');
         }
     }, [userProfile]);
 
@@ -40,6 +42,7 @@ const Profile = () => {
         if (userProfile) {
             setName(userProfile.name);
             setEmail(userProfile.email);
+            setMobile(userProfile.mobile || '');
         }
         setMessage({ text: '', type: '' });
         setEditMode(false);
@@ -53,9 +56,13 @@ const Profile = () => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email))
             return setMessage({ text: 'Please enter a valid email address.', type: 'error' });
+        const trimmedMobile = mobile.trim();
+        const mobileRegex = /^\+?[0-9][0-9\s\-()]{6,18}[0-9]$/;
+        if (trimmedMobile && !mobileRegex.test(trimmedMobile))
+            return setMessage({ text: 'Please enter a valid mobile number.', type: 'error' });
 
         setLoading(true);
-        const result = await updateUserProfile(name.trim(), email.trim());
+        const result = await updateUserProfile(name.trim(), email.trim(), trimmedMobile);
         setLoading(false);
         if (result.success) {
             setMessage({ text: result.message, type: 'success' });
@@ -136,15 +143,14 @@ const Profile = () => {
                                 </p>
                                 {/* Active item */}
                                 <button
+                                    onClick={() => navigate('/profile')}
                                     className='w-full text-left px-5 py-2 text-sm font-semibold text-gray-900 bg-[#EEF3F7] border-l-[3px] border-gray-700'
                                 >
                                     Profile
                                 </button>
-                                {/* Placeholder — no route implemented */}
                                 <button
-                                    disabled
-                                    title='Coming soon'
-                                    className='w-full text-left px-5 py-2 text-sm text-gray-400 cursor-not-allowed'
+                                    onClick={() => navigate('/addresses')}
+                                    className='w-full text-left px-5 py-2 text-sm text-gray-600 hover:bg-[#EEF3F7] hover:text-gray-900 transition-colors'
                                 >
                                     Addresses
                                 </button>
@@ -205,11 +211,11 @@ const Profile = () => {
                                         Mobile Number
                                     </label>
                                     <input
-                                        type='text'
-                                        value='Not added'
-                                        disabled
-                                        title='Mobile number not supported yet'
-                                        className='border border-gray-200 py-2.5 px-3 text-sm text-gray-400 bg-[#F6F9FB] cursor-not-allowed italic'
+                                        type='tel'
+                                        value={mobile}
+                                        onChange={e => setMobile(e.target.value)}
+                                        placeholder='e.g. +91 9876543210'
+                                        className='border border-gray-300 py-2.5 px-3 text-sm text-gray-800 outline-none focus:border-gray-600 transition-colors bg-white'
                                     />
                                 </div>
 
@@ -247,7 +253,7 @@ const Profile = () => {
                             <div>
                                 <InfoRow label='Full Name'       value={userProfile.name} />
                                 <InfoRow label='Email Address'   value={userProfile.email} />
-                                <InfoRow label='Mobile Number'   value={null} placeholder='Not added' />
+                                <InfoRow label='Mobile Number'   value={userProfile.mobile} placeholder='Not added' />
 
                                 {/* Feedback (e.g. success after save) */}
                                 {message.text && (

@@ -188,19 +188,89 @@ const ShopContextProvider = (props) => {
         }
     };
 
-    const updateUserProfile = async (name, email) => {
+    const updateUserProfile = async (name, email, mobile = '') => {
         try {
             const response = await axios.post(
                 `${backendUrl}/api/user/update-profile`,
-                { name, email },
+                { name, email, mobile },
                 { headers: { token } }
             );
             if (response.data.success) {
-                setUserProfile({ name, email });
+                setUserProfile({ name, email, mobile });
                 return { success: true, message: response.data.message };
             } else {
                 return { success: false, message: response.data.message };
             }
+        } catch (error) {
+            return { success: false, message: error.message || 'Something went wrong.' };
+        }
+    };
+
+    // ── Saved Addresses ───────────────────────────────────────────────
+
+    const [savedAddresses, setSavedAddresses] = useState([]);
+
+    const getSavedAddresses = async (userToken) => {
+        try {
+            const response = await axios.post(
+                `${backendUrl}/api/user/addresses`,
+                {},
+                { headers: { token: userToken } }
+            );
+            if (response.data.success) {
+                setSavedAddresses(response.data.addresses || []);
+            }
+        } catch (error) {
+            console.error('Failed to fetch saved addresses:', error.message);
+        }
+    };
+
+    const addSavedAddress = async (address) => {
+        try {
+            const response = await axios.post(
+                `${backendUrl}/api/user/add-address`,
+                { address },
+                { headers: { token } }
+            );
+            if (response.data.success) {
+                setSavedAddresses(response.data.addresses || []);
+                return { success: true, message: response.data.message };
+            }
+            return { success: false, message: response.data.message };
+        } catch (error) {
+            return { success: false, message: error.message || 'Something went wrong.' };
+        }
+    };
+
+    const updateSavedAddress = async (addressId, address) => {
+        try {
+            const response = await axios.post(
+                `${backendUrl}/api/user/update-address`,
+                { addressId, address },
+                { headers: { token } }
+            );
+            if (response.data.success) {
+                setSavedAddresses(response.data.addresses || []);
+                return { success: true, message: response.data.message };
+            }
+            return { success: false, message: response.data.message };
+        } catch (error) {
+            return { success: false, message: error.message || 'Something went wrong.' };
+        }
+    };
+
+    const deleteSavedAddress = async (addressId) => {
+        try {
+            const response = await axios.post(
+                `${backendUrl}/api/user/delete-address`,
+                { addressId },
+                { headers: { token } }
+            );
+            if (response.data.success) {
+                setSavedAddresses(response.data.addresses || []);
+                return { success: true, message: response.data.message };
+            }
+            return { success: false, message: response.data.message };
         } catch (error) {
             return { success: false, message: error.message || 'Something went wrong.' };
         }
@@ -247,6 +317,12 @@ const ShopContextProvider = (props) => {
         userProfile,
         getUserProfile,
         updateUserProfile,
+        // Saved addresses
+        savedAddresses,
+        getSavedAddresses,
+        addSavedAddress,
+        updateSavedAddress,
+        deleteSavedAddress,
     };
 
     return (

@@ -104,11 +104,14 @@ const adminLogin = async (req, res) => {
 const getProfile = async (req, res) => {
     try {
         const { userId } = req.body
-        const user = await userModel.findById(userId).select('name email')
+        const user = await userModel.findById(userId).select('name email mobile')
         if (!user) {
             return res.json({ success: false, message: 'User not found' })
         }
-        res.json({ success: true, user: { name: user.name, email: user.email } })
+        res.json({
+            success: true,
+            user: { name: user.name, email: user.email, mobile: user.mobile || '' }
+        })
     } catch (error) {
         console.log(error)
         res.json({ success: false, message: error.message })
@@ -118,13 +121,17 @@ const getProfile = async (req, res) => {
 // Update authenticated user's name and/or email
 const updateProfile = async (req, res) => {
     try {
-        const { userId, name, email } = req.body
+        const { userId, name, email, mobile } = req.body
+        const trimmedMobile = typeof mobile === 'string' ? mobile.trim() : ''
 
         if (!name || !name.trim()) {
             return res.json({ success: false, message: 'Name is required' })
         }
         if (!email || !validator.isEmail(email)) {
             return res.json({ success: false, message: 'Please enter a valid email' })
+        }
+        if (trimmedMobile && !validator.isMobilePhone(trimmedMobile, 'any')) {
+            return res.json({ success: false, message: 'Please enter a valid mobile number' })
         }
 
         // Prevent email collision with another user
@@ -133,7 +140,11 @@ const updateProfile = async (req, res) => {
             return res.json({ success: false, message: 'Email is already in use by another account' })
         }
 
-        await userModel.findByIdAndUpdate(userId, { name: name.trim(), email })
+        await userModel.findByIdAndUpdate(userId, {
+            name: name.trim(),
+            email,
+            mobile: trimmedMobile
+        })
         res.json({ success: true, message: 'Profile updated successfully' })
     } catch (error) {
         console.log(error)
@@ -141,4 +152,143 @@ const updateProfile = async (req, res) => {
     }
 }
 
-export { loginUser, registerUser, adminLogin, getProfile, updateProfile }
+const validateAddress = (address = {}) => {
+    const { firstName, lastName, email, street, city, state, zipcode, country, phone } = address
+
+    if (!firstName?.trim()) return 'First name is required'
+    if (!lastName?.trim()) return 'Last name is required'
+    if (!email || !validator.isEmail(email)) return 'Please enter a valid email'
+    if (!street?.trim()) return 'Street address is required'
+    if (!city?.trim()) return 'City is required'
+    if (!state?.trim()) return 'State is required'
+    if (!zipcode?.trim()) return 'Zipcode is required'
+    if (!country?.trim()) return 'Country is required'
+    if (!phone?.trim() || !validator.isMobilePhone(phone.trim(), 'any')) {
+        return 'Please enter a valid phone number'
+    }
+    return null
+}
+
+const formatAddress = (address) => ({
+    firstName: address.firstName.trim(),
+    lastName: address.lastName.trim(),
+    email: address.email.trim(),
+    street: address.street.trim(),
+    city: address.city.trim(),
+    state: address.state.trim(),
+    zipcode: address.zipcode.trim(),
+    country: address.country.trim(),
+    phone: address.phone.trim(),
+})
+
+const getAddresses = async (req, res) => {
+    try {
+        const { userId } = req.body
+        const user = await userModel.findById(userId).select('addresses')
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' })
+        }
+        res.json({ success: true, addresses: user.addresses || [] })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+const addAddress = async (req, res) => {
+    try {
+        const { userId, address } = req.body
+        const validationError = validateAddress(address)
+        if (validationError) {
+            return res.json({ success: false, message: validationError })
+        }
+
+        const user = await userModel.findById(userId)
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' })
+        }
+
+        user.addresses.push(formatAddress(address))
+        await user.save()
+
+        res.json({
+            success: true,
+            message: 'Address added successfully',
+            addresses: user.addresses
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+const updateAddress = async (req, res) => {
+    try {
+        const { userId, addressId, address } = req.body
+        const validationError = validateAddress(address)
+        if (validationError) {
+            return res.json({ success: false, message: validationError })
+        }
+
+        const user = await userModel.findById(userId)
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' })
+        }
+
+        const existingAddress = user.addresses.id(addressId)
+        if (!existingAddress) {
+            return res.json({ success: false, message: 'Address not found' })
+        }
+
+        existingAddress.set(formatAddress(address))
+        await user.save()
+
+        res.json({
+            success: true,
+            message: 'Address updated successfully',
+            addresses: user.addresses
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+const deleteAddress = async (req, res) => {
+    try {
+        const { userId, addressId } = req.body
+        const user = await userModel.findById(userId)
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' })
+        }
+
+        const existingAddress = user.addresses.id(addressId)
+        if (!existingAddress) {
+            return res.json({ success: false, message: 'Address not found' })
+        }
+
+        existingAddress.deleteOne()
+        await user.save()
+
+        res.json({
+            success: true,
+            message: 'Address deleted successfully',
+            addresses: user.addresses
+        })
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
+
+export {
+    loginUser,
+    registerUser,
+    adminLogin,
+    getProfile,
+    updateProfile,
+    getAddresses,
+    addAddress,
+    updateAddress,
+    deleteAddress
+}
