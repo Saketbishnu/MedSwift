@@ -8,17 +8,7 @@ const initialMessages = [
   }
 ]
 
-const createMockReply = (message) => {
-  if (message.toLowerCase().includes('order')) {
-    return 'I can help with order-related questions. In the next phase, this chat will be connected to live order support.'
-  }
-
-  if (message.toLowerCase().includes('product')) {
-    return 'I can share general guidance for products here for now. Live recommendations will come in a later phase.'
-  }
-
-  return 'Thanks for your message. This is a temporary chatbot preview, so responses are mocked for now.'
-}
+const CHAT_ENDPOINT = 'http://127.0.0.1:8012/chat'
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -31,7 +21,7 @@ const Chatbot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, isOpen, isReplying])
 
-  const handleSendMessage = (event) => {
+  const handleSendMessage = async (event) => {
     event.preventDefault()
 
     const trimmedMessage = inputValue.trim()
@@ -50,17 +40,41 @@ const Chatbot = () => {
     setInputValue('')
     setIsReplying(true)
 
-    window.setTimeout(() => {
+    try {
+      const response = await fetch(CHAT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: trimmedMessage })
+      })
+
+      if (!response.ok) {
+        throw new Error('Backend request failed')
+      }
+
+      const data = await response.json()
+
       setMessages((currentMessages) => [
         ...currentMessages,
         {
           id: Date.now() + 1,
           sender: 'bot',
-          text: createMockReply(trimmedMessage)
+          text: data.response || 'Sorry, I could not understand that response.'
         }
       ])
+    } catch {
+      setMessages((currentMessages) => [
+        ...currentMessages,
+        {
+          id: Date.now() + 1,
+          sender: 'bot',
+          text: 'Sorry, I am having trouble reaching the Shopzy AI service right now. Please try again in a moment.'
+        }
+      ])
+    } finally {
       setIsReplying(false)
-    }, 600)
+    }
   }
 
   return (
