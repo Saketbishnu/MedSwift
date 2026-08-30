@@ -14,6 +14,7 @@ import Addresses from './pages/Addresses'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchBar from './components/SearchBar'
+import Chatbot from './components/Chatbot'
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
 
         </Routes>
         <Footer/>
+        <Chatbot/>
        
 
     </div>

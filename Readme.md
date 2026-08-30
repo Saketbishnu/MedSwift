@@ -1,8 +1,8 @@
-# 🚑💊 MedSwift — AI Powered Smart Medicine Delivery Platform
+# 🚑 Shopzy — AI Powered Smart Delivery Platform
 
 <p align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=30&duration=3000&pause=800&color=00E5FF&center=true&vCenter=true&width=1000&lines=Instant+Medicine+Delivery+Platform;AI+Powered+Healthcare+Logistics+System;Prescription+Based+Medicine+Ordering;Real-Time+Medicine+Tracking+Platform+🚀"/>
+<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=30&duration=3000&pause=800&color=00E5FF&center=true&vCenter=true&width=1000&lines=Instant+Delivery+Platform;AI+Powered+Logistics+System;Real-Time+Tracking+Platform+🚀"/>
 
 </p>
 
@@ -10,7 +10,7 @@
 
 <p align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,25:2563eb,50:06b6d4,75:14b8a6,100:22c55e&height=180&section=header&text=MedSwift&fontSize=45&fontColor=ffffff&animation=fadeIn&fontAlignY=35"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,25:2563eb,50:06b6d4,75:14b8a6,100:22c55e&height=180&section=header&text=Shopzy&fontSize=45&fontColor=ffffff&animation=fadeIn&fontAlignY=35"/>
 
 </p>
 
